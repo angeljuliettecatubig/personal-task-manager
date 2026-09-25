@@ -1,0 +1,1726 @@
+/* =========================================================
+   PERSONAL TASK MANAGER
+   FINAL UI / UX DESIGN SYSTEM
+
+   Design Principles:
+   • Unity
+   • Hierarchy
+   • Dominance
+   • Balance
+   • Proportion
+   • Contrast
+   • Colour
+   • Gestalt / Proximity
+========================================================= */
+
+
+/* =========================================================
+   1. DESIGN TOKENS
+========================================================= */
+
+:root {
+    --blue: #579ceb;
+    --blue-dark: #28527f;
+    --blue-light: #e8f4ff;
+    --blue-soft: #dceeff;
+
+    --pink: #f184b9;
+    --pink-light: #fff0f7;
+    --pink-soft: #ffe1ef;
+
+    --purple: #9385df;
+    --purple-light: #f1edff;
+
+    --green: #55b77d;
+    --green-light: #ebf9f1;
+
+    --red: #e96f83;
+    --red-light: #fff0f3;
+
+    --text: #29415f;
+    --text-soft: #607d9e;
+    --text-muted: #89a0ba;
+
+    --white: #ffffff;
+
+    --border: #d6e5f3;
+    --border-light: #e4edf6;
+
+    --background-blue: #eef8ff;
+    --background-pink: #fff4fa;
+
+    --shadow-soft:
+        0 8px 24px rgba(67, 112, 153, 0.08);
+
+    --shadow-card:
+        0 5px 16px rgba(67, 112, 153, 0.06);
+
+    --radius-small: 9px;
+    --radius-medium: 13px;
+    --radius-large: 18px;
+
+    --transition: 0.2s ease;
+}
+
+
+/* =========================================================
+   2. GLOBAL RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        linear-gradient(
+            120deg,
+            #e9f6ff 0%,
+            #f5f9ff 48%,
+            #fff0f8 100%
+        );
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   3. PAGE BACKGROUND
+========================================================= */
+
+.page-background {
+    min-height: 100vh;
+
+    padding: 28px 20px 20px;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(87, 156, 235, 0.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 92% 20%,
+            rgba(241, 132, 185, 0.13),
+            transparent 30%
+        ),
+        linear-gradient(
+            120deg,
+            #eaf6ff 0%,
+            #f7fbff 52%,
+            #fff1f8 100%
+        );
+}
+
+
+/* =========================================================
+   4. MAIN CONTAINER
+========================================================= */
+
+.container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   5. MAIN HEADER
+========================================================= */
+
+.header {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.brand {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.brand-icon {
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-icon svg {
+    width: 48px;
+    height: 48px;
+
+    color: var(--blue-dark);
+}
+
+.brand h1 {
+    margin: 0;
+
+    color: var(--blue-dark);
+
+    font-size: 31px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+
+.subtitle {
+    margin: 6px 0 0;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   6. PRIMARY ADD BUTTON
+========================================================= */
+
+.add-button {
+    min-height: 46px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 17px;
+    gap: 8px;
+
+    border: 1px solid rgba(66, 139, 219, 0.35);
+    border-radius: 11px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #63a9f2 0%,
+            #579ceb 100%
+        );
+
+    box-shadow:
+        0 6px 16px rgba(87, 156, 235, 0.18);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+.add-button svg {
+    width: 21px;
+    height: 21px;
+    flex: 0 0 21px;
+}
+
+.add-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 19px rgba(87, 156, 235, 0.22);
+
+    background:
+        linear-gradient(
+            135deg,
+            #579ceb 0%,
+            #478ddd 100%
+        );
+}
+
+.add-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   7. SUCCESS MESSAGE
+========================================================= */
+
+.success-message {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 18px;
+    padding: 11px 14px;
+
+    border: 1px solid #b8e2ca;
+    border-radius: 10px;
+
+    color: #28764b;
+    background: #effbf4;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.success-message span {
+    width: 21px;
+    height: 21px;
+    flex: 0 0 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+    background: var(--green);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   8. DASHBOARD STATISTICS
+========================================================= */
+
+.dashboard {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    min-height: 108px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 19px 22px;
+
+    border: 1px solid var(--border);
+    border-radius: 17px;
+
+    background: rgba(255, 255, 255, 0.86);
+
+    box-shadow: var(--shadow-soft);
+}
+
+.stat-blue {
+    border-color: #c8e3fb;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5fbff 0%,
+            #eaf6ff 100%
+        );
+}
+
+.stat-pink {
+    border-color: #f4cade;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffafd 0%,
+            #fff0f7 100%
+        );
+}
+
+.stat-purple {
+    border-color: #dcd4fa;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fbfaff 0%,
+            #f3efff 100%
+        );
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+}
+
+.stat-blue .stat-icon {
+    color: #4d9aee;
+    background: #dceeff;
+}
+
+.stat-pink .stat-icon {
+    color: #ed72aa;
+    background: #ffe0ee;
+}
+
+.stat-purple .stat-icon {
+    color: #8d7ce0;
+    background: #e9e2ff;
+}
+
+.stat-icon svg {
+    width: 25px;
+    height: 25px;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.stat-content span {
+    color: var(--text-soft);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.stat-content strong {
+    color: var(--blue-dark);
+
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   9. TASK SECTION
+========================================================= */
+
+.tasks-section {
+    padding: 22px 22px 24px;
+
+    border: 1px solid var(--border);
+    border-radius: 19px;
+
+    background: rgba(255, 255, 255, 0.90);
+
+    box-shadow: var(--shadow-soft);
+}
+
+.tasks-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 19px;
+}
+
+.tasks-title {
+    margin: 0;
+
+    color: var(--blue-dark);
+
+    font-size: 24px;
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.tasks-header p {
+    margin: 4px 0 0;
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   10. TASK SEARCH
+========================================================= */
+
+.search-box {
+    width: 250px;
+    height: 42px;
+    flex: 0 0 250px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 12px;
+
+    border: 1px solid #cfe1f2;
+    border-radius: 10px;
+
+    background: #fbfdff;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.search-box:focus-within {
+    border-color: #8dbde9;
+
+    box-shadow:
+        0 0 0 3px rgba(87, 156, 235, 0.10);
+}
+
+.search-box svg {
+    width: 17px;
+    height: 17px;
+    flex: 0 0 17px;
+
+    color: #7da2c6;
+}
+
+.search-box input {
+    width: 100%;
+
+    padding: 0;
+
+    border: 0;
+    outline: 0;
+
+    color: var(--text);
+    background: transparent;
+
+    font-size: 13px;
+}
+
+.search-box input::placeholder {
+    color: #9ab0c8;
+}
+
+
+/* =========================================================
+   11. TASK LIST
+========================================================= */
+
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   12. TASK CARD
+========================================================= */
+
+.task-card {
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    background: #ffffff;
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.task-card:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(67, 112, 153, 0.09);
+}
+
+
+/* =========================================================
+   13. PENDING TASK
+========================================================= */
+
+.task-pending {
+    border-color: #d7e6f3;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #fbfdff 100%
+        );
+}
+
+
+/* =========================================================
+   14. COMPLETED TASK
+========================================================= */
+
+.task-completed {
+    border-color: #b7dfc8;
+
+    background:
+        linear-gradient(
+            135deg,
+            #effaf4 0%,
+            #f8fcfa 100%
+        );
+
+    box-shadow:
+        inset 5px 0 0 #59b77f,
+        0 5px 18px rgba(83, 166, 115, 0.08);
+}
+
+
+/* =========================================================
+   15. TASK CARD LAYOUT
+========================================================= */
+
+.task-card-main {
+    min-height: 118px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto
+        auto;
+
+    align-items: center;
+
+    gap: 22px;
+
+    padding: 16px 18px;
+}
+
+
+/* =========================================================
+   16. TASK INFORMATION
+========================================================= */
+
+.task-info {
+    min-width: 0;
+}
+
+.task-title-row {
+    margin-bottom: 6px;
+}
+
+.task-title-row h4 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 750;
+
+    word-break: break-word;
+}
+
+.task-completed .task-title-row h4 {
+    color: #29415d;
+    text-decoration: none;
+}
+
+.task-card-desc {
+    margin: 0 0 8px;
+
+    color: var(--text-soft);
+
+    font-size: 12px;
+    line-height: 1.45;
+
+    word-break: break-word;
+}
+
+.task-card-due {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    color: #7d9ab8;
+
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.task-card-due svg {
+    width: 15px;
+    height: 15px;
+    flex: 0 0 15px;
+
+    color: #6f9bc3;
+}
+
+
+/* =========================================================
+   17. TASK STATUS
+========================================================= */
+
+.task-status {
+    min-width: 92px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.status {
+    min-width: 92px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 12px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 750;
+
+    letter-spacing: 0.2px;
+}
+
+.status.pending {
+    color: #d85d91;
+    background: #ffe8f2;
+}
+
+.status.completed {
+    color: #32945f;
+    background: #dff5e8;
+}
+
+
+/* =========================================================
+   18. TASK ACTION BUTTONS
+========================================================= */
+
+.task-card-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+.action-button {
+    min-height: 36px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 10px;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    gap: 4px;
+
+    background: #ffffff;
+
+    font-size: 12px;
+    font-weight: 650;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.action-button svg {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+}
+
+.action-button:hover {
+    transform: translateY(-1px);
+}
+
+.action-button.edit {
+    color: #418fe5;
+
+    border-color: #c7e0f9;
+    background: #f3f9ff;
+}
+
+.action-button.edit:hover {
+    border-color: #9fc9f0;
+    background: #e9f4ff;
+}
+
+.action-button.delete {
+    color: #df6178;
+
+    border-color: #f4c5d0;
+    background: #fff5f7;
+}
+
+.action-button.delete:hover {
+    border-color: #eba8b8;
+    background: #ffedf1;
+}
+
+
+/* =========================================================
+   19. EMPTY STATE
+========================================================= */
+
+.empty-state {
+    padding: 42px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-icon {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 12px;
+
+    border-radius: 15px;
+
+    color: var(--blue);
+    background: var(--blue-light);
+}
+
+.empty-icon svg {
+    width: 27px;
+    height: 27px;
+}
+
+.empty-state h3 {
+    margin: 0;
+
+    color: var(--blue-dark);
+
+    font-size: 17px;
+}
+
+.empty-state p {
+    margin: 6px 0 16px;
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   20. DELETE MODAL OVERLAY
+========================================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(38, 57, 80, 0.48);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   21. DELETE MODAL BOX
+========================================================= */
+
+.modal-box {
+    width: min(100%, 460px);
+
+    padding: 30px 32px 28px;
+
+    border: 1px solid #dce8f4;
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(48, 79, 112, 0.18),
+        0 6px 18px rgba(48, 79, 112, 0.08);
+
+    transform: translateY(8px) scale(0.98);
+
+    opacity: 0;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.modal-overlay.active .modal-box {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+
+/* =========================================================
+   22. DELETE WARNING ICON
+========================================================= */
+
+.modal-warning-icon {
+    width: 56px;
+    height: 56px;
+
+    margin: 0 auto 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    color: #e7687c;
+    background: #fff0f4;
+}
+
+.modal-warning-icon svg {
+    width: 27px;
+    height: 27px;
+}
+
+
+/* =========================================================
+   23. DELETE MODAL TEXT
+========================================================= */
+
+.modal-box h3 {
+    margin: 0;
+
+    color: #294c78;
+
+    font-size: 23px;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.modal-box p {
+    max-width: 360px;
+
+    margin: 10px auto 0;
+
+    color: #6e87a3;
+
+    font-size: 13px;
+    line-height: 1.65;
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   24. DELETE MODAL ACTIONS
+========================================================= */
+
+.modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 24px;
+}
+
+
+/* =========================================================
+   25. GENERAL BACK / CANCEL BUTTON
+   Used by modal and existing Blade forms
+========================================================= */
+
+.back-button {
+    min-height: 40px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 15px;
+
+    border: 1px solid #c8ddef;
+    border-radius: 9px;
+
+    color: #527493;
+    background: rgba(255, 255, 255, 0.86);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        border-color var(--transition),
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.back-button:hover {
+    border-color: #9ec8eb;
+    color: #3e6284;
+    background: #ffffff;
+
+    transform: translateY(-1px);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   26. MODAL CANCEL BUTTON
+   Supports Blade if this class is used instead
+========================================================= */
+
+.modal-cancel-button {
+    min-width: 88px;
+    height: 40px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 16px;
+
+    border: 1px solid #cbdceb;
+    border-radius: 9px;
+
+    color: #55728f;
+    background: #ffffff;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.modal-cancel-button:hover {
+    border-color: #a9c5df;
+
+    color: #3e6284;
+    background: #f5f9fd;
+}
+
+.modal-cancel-button:active {
+    transform: translateY(1px);
+}
+
+
+/* =========================================================
+   27. DELETE CONFIRM BUTTON
+========================================================= */
+
+.delete-confirm-button {
+    min-height: 40px;
+
+    padding: 0 17px;
+
+    border: 1px solid #e8a8b6;
+    border-radius: 9px;
+
+    color: #ffffff;
+    background: #e96f83;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px rgba(233, 111, 131, 0.12);
+
+    transition:
+        background var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+.delete-confirm-button:hover {
+    background: #dd5f75;
+
+    box-shadow:
+        0 6px 14px rgba(233, 111, 131, 0.18);
+
+    transform: translateY(-1px);
+}
+
+.delete-confirm-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   28. FORM CONTAINER
+   Used by Create and Edit Blade
+========================================================= */
+
+.form-container {
+    width: 100%;
+    max-width: 720px;
+
+    margin: 24px auto;
+
+    padding: 25px;
+
+    border: 1px solid var(--border);
+    border-radius: 19px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    box-shadow: var(--shadow-soft);
+}
+
+
+/* =========================================================
+   29. FORM HEADER
+========================================================= */
+
+.form-header {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 23px;
+}
+
+.form-header-icon {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    color: #418fe5;
+    background: #e2f1ff;
+
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.form-header h1 {
+    margin: 0;
+
+    color: var(--blue-dark);
+
+    font-size: 25px;
+    line-height: 1.15;
+}
+
+.form-header p {
+    margin: 4px 0 0;
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   30. FORM ERROR BOX
+========================================================= */
+
+.form-error-box {
+    margin-bottom: 18px;
+
+    padding: 13px 15px;
+
+    border: 1px solid #f0c2cc;
+    border-radius: 10px;
+
+    color: #a3475a;
+    background: #fff4f6;
+
+    font-size: 13px;
+}
+
+.form-error-box strong {
+    font-weight: 700;
+}
+
+.form-error-box ul {
+    margin: 7px 0 0;
+    padding-left: 18px;
+}
+
+.form-error {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #d45f73;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   31. TASK FORM
+========================================================= */
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.form-group label {
+    color: #3d5b7c;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 42px;
+}
+
+.form-group textarea {
+    width: 100%;
+    min-height: 105px;
+
+    resize: vertical;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 10px 12px;
+
+    border: 1px solid #cfe0ef;
+    border-radius: 9px;
+
+    outline: none;
+
+    color: var(--text);
+    background: #fbfdff;
+
+    font-size: 13px;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #86b9e8;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(87, 156, 235, 0.10);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ab0c8;
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   32. FORM ACTIONS
+========================================================= */
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   33. SAVE BUTTON
+========================================================= */
+
+.save-button {
+    min-height: 40px;
+
+    padding: 0 17px;
+
+    border: 1px solid #5598e3;
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #63a9f2,
+            #579ceb
+        );
+
+    font-size: 13px;
+    font-weight: 700;
+
+    box-shadow:
+        0 5px 12px rgba(87, 156, 235, 0.15);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+.save-button:hover {
+    transform: translateY(-1px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #579ceb,
+            #478ddd
+        );
+
+    box-shadow:
+        0 7px 15px rgba(87, 156, 235, 0.20);
+}
+
+.save-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   34. FORM PAGE BACK BUTTON
+   Supports Create / Edit Blade
+========================================================= */
+
+.form-page-back {
+    min-height: 40px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 15px;
+
+    border: 1px solid #c8ddef;
+    border-radius: 9px;
+
+    color: #527493;
+    background: rgba(255, 255, 255, 0.82);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        border-color var(--transition),
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.form-page-back:hover {
+    border-color: #9ec8eb;
+
+    color: #3e6284;
+    background: #ffffff;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   35. FOOTER
+========================================================= */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 19px 0 5px;
+
+    color: #7e98b3;
+
+    font-size: 12px;
+    text-align: center;
+}
+
+.footer span {
+    color: var(--pink);
+}
+
+
+/* =========================================================
+   36. RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .container {
+        max-width: 100%;
+    }
+
+    .brand h1 {
+        font-size: 27px;
+    }
+
+    .task-card-main {
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto;
+
+        gap: 14px;
+    }
+
+    .task-status {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .task-card-actions {
+        grid-column: 1 / -1;
+        grid-row: 2;
+
+        justify-content: flex-end;
+    }
+}
+
+
+/* =========================================================
+   37. RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .page-background {
+        padding: 20px 12px 15px;
+    }
+
+    .header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 16px;
+
+        margin-bottom: 22px;
+    }
+
+    .brand h1 {
+        font-size: 23px;
+    }
+
+    .brand-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .brand-icon svg {
+        width: 43px;
+        height: 43px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .add-button {
+        width: 100%;
+        min-height: 46px;
+    }
+
+
+    /* Dashboard */
+
+    .dashboard {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin-bottom: 18px;
+    }
+
+    .stat-card {
+        min-height: 92px;
+
+        padding: 16px;
+    }
+
+
+    /* Tasks */
+
+    .tasks-section {
+        padding: 18px 14px 20px;
+
+        border-radius: 15px;
+    }
+
+    .tasks-header {
+        align-items: stretch;
+
+        flex-direction: column;
+
+        gap: 13px;
+    }
+
+    .tasks-title {
+        font-size: 21px;
+    }
+
+    .search-box {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+
+
+    /* Task cards */
+
+    .task-card-main {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 12px;
+
+        padding: 15px;
+    }
+
+    .task-status {
+        justify-content: flex-start;
+    }
+
+    .task-card-actions {
+        justify-content: flex-start;
+    }
+
+
+    /* Forms */
+
+    .form-container {
+        margin: 15px auto;
+
+        padding: 20px 17px;
+
+        border-radius: 15px;
+    }
+
+    .form-header {
+        align-items: flex-start;
+    }
+
+    .form-header h1 {
+        font-size: 22px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        justify-content: flex-end;
+    }
+
+
+    /* Delete modal */
+
+    .modal-box {
+        width: min(100%, 420px);
+
+        padding: 25px 20px 22px;
+
+        border-radius: 16px;
+    }
+
+    .modal-warning-icon {
+        width: 52px;
+        height: 52px;
+
+        margin-bottom: 14px;
+    }
+
+    .modal-box h3 {
+        font-size: 21px;
+    }
+
+    .modal-box p {
+        font-size: 12px;
+    }
+
+    .modal-actions {
+        margin-top: 20px;
+    }
+}
+
+
+/* =========================================================
+   38. RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .brand {
+        gap: 10px;
+    }
+
+    .brand h1 {
+        font-size: 21px;
+    }
+
+    .brand-icon {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+    }
+
+    .brand-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .action-button {
+        flex: 1;
+    }
+
+    .task-card-actions {
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .form-actions .save-button,
+    .form-actions .back-button,
+    .form-actions .form-page-back {
+        width: 100%;
+    }
+
+    .modal-actions {
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+
+    .modal-actions .back-button,
+    .modal-actions .modal-cancel-button,
+    .modal-actions .delete-confirm-button {
+        width: 100%;
+    }
+}
